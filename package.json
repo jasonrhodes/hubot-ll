@@ -1,1 +1,23 @@
-{}
+{
+  "name": "hubot-ll",
+  "description": "A crazy game experiment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonrhodes/hubot-ll.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonrhodes/hubot-ll/issues"
+  },
+  "homepage": "https://github.com/jasonrhodes/hubot-ll#readme"
+}
