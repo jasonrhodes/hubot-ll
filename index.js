@@ -2,23 +2,26 @@ var game = require('./lib/game');
 
 module.exports = function (robot) {
 
-  game.init(robot);
+  game.inject(robot);
 
   robot.hear(/^ll join/i, function (res) {
+    game.set(res);
     game.join(res.message.user.name);
   });
 
-  robot.hear(/^ll play ([a-z]+) ?(\w)?/i, function (res) {
+  robot.hear(/^ll deal/i, function (res) {
     game.set(res);
-    game.play(res.message.user.name, res.match[0], res.match[1]);
+    game.deal();
   });
 
-  beacon.on('message', function (message) {
-
+  robot.hear(/^ll play ([a-z]+) ?([\w:]+)?/i, function (res) {
+    game.set(res);
+    game.play(game.getPlayer(res.message.user.name), res.match[1], res.match[2]);
   });
 
-  beacon.on('reply', function (player, message) {
-
+  robot.hear(/^ll hand/i, function (res) {
+    game.set(res);
+    game.showHand(game.getPlayer(res.message.user.name));
   });
 
 };
